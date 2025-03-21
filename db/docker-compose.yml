@@ -1,0 +1,17 @@
+services:
+  postgres:
+    image: postgres:latest
+    platform: linux/arm64
+    container_name: cricdb
+    environment:
+      POSTGRES_USER: sagar
+      POSTGRES_PASSWORD: sagar
+      POSTGRES_DB: cric
+    restart: unless-stopped
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+
+volumes:
+  pgdata:
