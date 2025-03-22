@@ -11,7 +11,7 @@ class PostgresArgs:
     database: str
 
 
-def create_tables(args: PostgresArgs, file_path: str):
+def run_sql(args: PostgresArgs, file_path: str):
 
     # Read schema from SQL file
     with open(file_path, "r") as file:
@@ -33,10 +33,10 @@ def create_tables(args: PostgresArgs, file_path: str):
 
         # Commit changes
         conn.commit()
-        print("✅ Tables created successfully!")
+        print("✅ Command ran succesfully!")
 
     except Exception as e:
-        print("❌ Error creating tables:", e)
+        print("❌ Error running command:", e)
 
     finally:
         if cursor:
